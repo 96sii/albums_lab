@@ -30,10 +30,13 @@ def add_album():
     album_artist = request.form['artist']
     album_year = request.form['year']
     album_stock = request.form['stock_level']
+
     artist = Artist(album_artist)
     artist_repository.save(artist)
+
     new_album = Album(album_title, artist, album_year, album_stock)
     album_repository.save(new_album)
+    
     return render_template('/albums/index.html')
 
 
