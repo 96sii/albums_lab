@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="content">
+	
+	{% for album in albums %}
+	<div class="album-details">
+		<a href="/albums/{{ album.id }}"><h2>{{ album.title }}</h2></a>
+
+		<li>{{ album.artist.name }} - {{ album.year }}</li>
+
+		<div class="buttons">
+			<form action="/albums/{{ album.id}}/delete" method="POST">
+			<button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color: red" aria-hidden="true"></i></button>
+			</form>
+		</div>
+	</div>
+	
+	{% endfor %}
+
+	<div class="new-album">
+		<h1>Add a new album</h1>    
+		<form action="/albums" method="post">
+			<label for="title">Title</label>
+			<br>
+			<input type="text" name="title">
+			<br>
+			<label for="artist">Artist</label>
+			<br>
+			<input type="text" name="artist">
+			<br>
+			<label for="year">Release Date</label>
+			<br>
+			<input type="date" name="year">
+			<br>
+			<label for="stock_level">Stock level</label>
+			<br>
+			<input type="number" name="stock_level">
+			<br>
+			<input type="submit" value="Add album">
+		</form>
+	</div>
+	
+</section>
+{% endblock %}

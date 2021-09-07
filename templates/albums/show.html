@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="show">
+        <div class="show-info">
+            <p>Album: {{ album.title }}</p>
+            <p>Artist: {{ album.artist.name }}</p>
+            <p>Release date: {{ album.year }}</p>
+            <p>Stock Level: {{ album.stock_level }}</p>
+        </div>
+    </div>
+{% endblock content %}
